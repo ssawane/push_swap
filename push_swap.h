@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 22:35:05 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/19 00:25:51 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/27 18:06:17 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 typedef struct	s_list {
 	int				data;
+	int				index;
 	struct s_list	*next;
 }				t_list;
 
@@ -32,7 +33,8 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		*int_str_convert(char *str, int *n);
 t_list	*ft_lstnew(int data);
 t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list *lst, t_list *new);
-void	lst_nums_convert(t_list *nodes, int *nums, int nums_count);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+t_list	**lst_nums_convert(int *nums, int nums_count);
+void	ft_sa(t_list **nodes);
 
 #endif

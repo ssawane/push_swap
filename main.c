@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:00:14 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/19 00:38:36 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/27 18:06:16 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,8 @@ int	main(int ac, char **av)
 {
 	char	*str;
 	int		*nums;
-	t_list	*nodes;
+	t_list	**nodes;
 	int		nums_count;
-
-//	nodes -> next = NULL;
-	printf("%p\n", nodes);
-	printf("%p\n", nodes -> next);
 
 	if (ac > 0)
 	{
@@ -37,7 +33,8 @@ int	main(int ac, char **av)
 		printf("nums[5]: %d\n", nums[5]);
 		printf("nums[6]: %d\n", nums[6]);
 		printf("nums[7]: %d\n", nums[7]);
-		lst_nums_convert(nodes, nums, nums_count);
+		nodes = lst_nums_convert(nums, nums_count);
+		ft_sa(nodes);
 
 	}
 //	while (1);
