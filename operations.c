@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 12:49:16 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/27 18:06:12 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/28 16:07:07 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	print_list(t_list **lst)
 		printf("data: %d\n", tmp -> data);
 		tmp = tmp -> next;
 	}
+	printf("data: %d\n", tmp -> data);
 }
 
 void	ft_sa_sb(t_list **stck, int index)
@@ -97,68 +98,65 @@ void	ft_pb(t_list **sta, t_list **stb)
 	}
 }
 
-**stack = (*stack) -> next
-*stack = stack->next
-
-int	count_lstlast(t_list *stck)
+void	ft_ra_rb(t_list **stck, int index)
 {
-	int	i;
+	t_list	*tmp_first;
+	t_list	*tmp_last;
 
-	i = 0;
-	while (stck -> next)
+	tmp_last = ft_lstlast(*stck);
+	tmp_first = *stck;
+	*stck = (*stck) -> next;
+	tmp_last -> next = tmp_first;
+	tmp_first -> next = NULL;
+	if (index == 1)
 	{
-		stck = stck -> next;
-		i++;
+		write (1, "ra", 2);
+		write (1, "\n", 1);
 	}
-	return (i);
+	else if (index == 2)
+	{
+		write (1, "rb", 2);
+		write (1, "\n", 1);
+	}
 }
 
-t_list	*ft_almostlast(t_list *lst, int k)
+void	ft_rr(t_list **sta, t_list **stb)
 {
-	int	i;
-
-	i = 1;
-	if (!lst)
-		return (NULL);
-	while (i < k && lst -> next)
-	{
-		lst = lst -> next;
-		i++;
-		printf("i: %d\n", i);
-	}
-	return (lst);
+	ft_ra_rb(sta, 0);
+	ft_ra_rb(stb, 0);
+	write (1, "rr", 2);
+	write (1, "\n", 1);
 }
 
-void	ft_ra(t_list **stck)
+void	ft_rra_rrb(t_list **stck, int index)
 {
-	t_list	*last;
-	t_list	*tmp;
+	t_list	*tmp_first;
 	t_list	*tmp_last;
 	t_list	*tmp_alast;
-	t_list	*tmp_first;
-	int		n;
-	int		i;
 
-	tmp = *(stck);
-	i = -1;
-	last = ft_lstlast(tmp);
-	n = count_lstlast(*(stck));
-	printf("n: %d\n", n);
-	while (n > 0)
+	tmp_first = *stck;
+	tmp_last = ft_lstlast(*stck);
+	tmp_alast = ft_almostlast(*stck);
+	tmp_alast -> next = NULL;
+	*stck = tmp_last;
+	(*stck) -> next = tmp_first;
+	if (index == 1)
 	{
-		tmp_first = *(stck);
-		tmp_alast = ft_almostlast(*(stck), n);
-		printf("alast: %d\n", tmp_alast -> data);
-		tmp_last = ft_lstlast(*(stck));
-	//	printf("last: %d\n", tmp_last -> data);
-		tmp_last -> next = tmp_first;
-		*(stck) = tmp_last;
-		tmp_alast -> next = NULL;
-	//	printf("n: %d\n", n);
-		n--;
+		write (1, "rra", 2);
+		write (1, "\n", 1);
 	}
-	tmp -> next = NULL;
-	write (1, "ra", 2);
+	else if (index == 2)
+	{
+		write (1, "rrb", 2);
+		write (1, "\n", 1);
+	}
+}
+
+void	ft_rrr(t_list **sta, t_list **stb)
+{
+	ft_rra_rrb(sta, 0);
+	ft_rra_rrb(stb, 0);
+	write (1, "rrr", 2);
 	write (1, "\n", 1);
 }
 
@@ -174,9 +172,11 @@ int	main(void)
 	stb = lst_nums_convert(n2, 5);
 
 	//ft_sa_sb(stb, 2);
-	ft_pb(sta, stb);
+	//ft_pb(sta, stb);
 	//ft_ss(sta, stb);
-//	ft_ra(sta);
-	//print_list(sta);
+	//
+	//ft_ra(sta);
+	ft_rra(sta);
+	print_list(sta);
 	//print_list(sta);
 }

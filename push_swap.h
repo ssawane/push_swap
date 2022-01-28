@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 22:35:05 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/27 18:06:17 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/28 15:58:40 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	**lst_nums_convert(int *nums, int nums_count);
 void	ft_sa(t_list **nodes);
+t_list	*ft_almostlast(t_list *lst);
 
 #endif
