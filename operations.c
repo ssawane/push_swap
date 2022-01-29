@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 12:49:16 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/28 22:36:35 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/29 14:52:39 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	print_list(t_list **lst)
 	printf("data: %d\n", tmp -> data);
 	printf("index: %d\n", tmp -> index);
 	printf("%s\n", " ");
-}
+} 
 
 void	ft_sa_sb(t_list **stck, int index)
 {

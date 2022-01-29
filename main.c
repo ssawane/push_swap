@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:00:14 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/28 23:08:29 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/29 14:34:57 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ int	main(int ac, char **av)
 		print_list(nodes);
 
 	}
-	while (1);
+//	while (1);
 }
