@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 12:49:16 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/28 16:07:07 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/28 22:36:35 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@ void	print_list(t_list **lst)
 	while(tmp -> next)
 	{
 		printf("data: %d\n", tmp -> data);
+		printf("index: %d\n", tmp -> index);
 		tmp = tmp -> next;
 	}
 	printf("data: %d\n", tmp -> data);
+	printf("index: %d\n", tmp -> index);
+	printf("%s\n", " ");
 }
 
 void	ft_sa_sb(t_list **stck, int index)
@@ -160,23 +163,23 @@ void	ft_rrr(t_list **sta, t_list **stb)
 	write (1, "\n", 1);
 }
 
-int	main(void)
-{
-	t_list	**sta;
-	t_list	**stb;
-	int		n1[] = {83, 7, 28, 81, 67};
-	int		n2[] = {32, 921, 68, 79, 17};
+// int	main(void)
+// {
+// 	t_list	**sta;
+// 	t_list	**stb;
+// 	int		n1[] = {83, 7, 28, 81, 67};
+// 	int		n2[] = {32, 921, 68, 79, 17};
 
-	sta = lst_nums_convert(n1, 5);
-	printf("%s\n", "t1");
-	stb = lst_nums_convert(n2, 5);
+// 	sta = lst_nums_convert(n1, 5);
+// 	printf("%s\n", "t1");
+// 	stb = lst_nums_convert(n2, 5);
 
-	//ft_sa_sb(stb, 2);
-	//ft_pb(sta, stb);
-	//ft_ss(sta, stb);
-	//
-	//ft_ra(sta);
-	ft_rra(sta);
-	print_list(sta);
-	//print_list(sta);
-}
+// 	//ft_sa_sb(stb, 2);
+// 	//ft_pb(sta, stb);
+// 	//ft_ss(sta, stb);
+// 	//
+// 	//ft_ra(sta);
+// 	ft_rra_rrb(sta, 1);
+// 	print_list(sta);
+// 	//print_list(sta);
+// }

@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:00:14 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/27 18:06:16 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/28 23:08:29 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	main(int ac, char **av)
 		printf("nums[6]: %d\n", nums[6]);
 		printf("nums[7]: %d\n", nums[7]);
 		nodes = lst_nums_convert(nums, nums_count);
-		ft_sa(nodes);
+		print_list(nodes);
 
 	}
-//	while (1);
+	while (1);
 }

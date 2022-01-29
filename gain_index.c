@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   temp.c                                             :+:      :+:    :+:   */
+/*   gain_index.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:56:40 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/28 18:03:14 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/28 22:58:47 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
+#include "push_swap.h"
 
 int	first_index(int *k, int *nums, int nums_count)
 {
@@ -31,29 +29,28 @@ int	first_index(int *k, int *nums, int nums_count)
 	return (0);
 }
 
-int	next_index(int *k, int num, int *nums, int nums_count)
+int	ft_max_check(int tmp, int number, int *nums, int nums_count)
 {
 	int	i;
+	int	k;
 
-	*k = 0;
-	printf("num: %d\n", num);
-	while (*k < nums_count)
+	i = 0;
+	k = 0;
+	if (number == tmp)
+		return (-1);
+	while (i < nums_count)
 	{
-		i = 0;
-		if (nums[*k] > num)
-		{
-			while (nums[*k] < nums[i] && i < nums_count)
-				i++;
-		}
-		printf("i: %d\n", i);
-		if (i == nums_count)
-			return (nums[*k]);
-		*k = *k + 1;
+		if (number > nums[i] && nums[i] > tmp)
+			k++;
+		i++;
 	}
-	return (0);
+	if (k == 0)
+		return (0);
+	else
+		return (-1);
 }
 
-int	*ft_index(int *nums, int nums_count)
+int	*get_index(int *nums, int nums_count)
 {
 	int	i;
 	int	j;
@@ -64,29 +61,34 @@ int	*ft_index(int *nums, int nums_count)
 	j = 0;
 	res = (int *)malloc(sizeof(int) * nums_count);
 	tmp = first_index(&i, nums, nums_count);
-	printf("tmp: %d\n", tmp);
-	res[i] = j;
-	while (++j < nums_count)
+	res[i] = j++;
+	while (j < nums_count)
 	{
-		tmp = next_index(&i, tmp, nums, nums_count);
-		printf("tmp: %d\n", tmp);
-		res[i] = j;
+		i = -1;
+		while (++i < nums_count)
+		{
+			if (nums[i] > tmp && !ft_max_check(tmp, nums[i], nums, nums_count))
+			{
+				res[i] = j++;
+				tmp = nums[i];
+			}
+		}
 	}
 	return (res);
 }
 
-int	main(void)
+void	ft_index(t_list **nodes, int *nums, int nums_count)
 {
-	int		n1[] = {83, 7, 28, 81, 67};
-	int		*nums;
+	int		i;
+	int		*inds;
+	t_list	*tmp;
 
-	nums = ft_index(n1, 5);
-	printf("nums[0]: %d\n", nums[0]);
-	printf("nums[1]: %d\n", nums[1]);
-	printf("nums[2]: %d\n", nums[2]);
-	printf("nums[3]: %d\n", nums[3]);
-	printf("nums[4]: %d\n", nums[4]);
-	printf("nums[5]: %d\n", nums[5]);
-	printf("nums[6]: %d\n", nums[6]);
-	printf("nums[7]: %d\n", nums[7]);
+	i = -1;
+	tmp = *nodes;
+	inds = get_index(nums, nums_count);
+	while (++i < nums_count)
+	{
+		tmp -> index = inds[i];
+		tmp = tmp -> next;
+	}
 }
