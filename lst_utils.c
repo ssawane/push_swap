@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:05:56 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/28 16:01:02 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/31 14:33:19 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ t_list	*ft_almostlast(t_list *lst)
 	if (!lst -> next -> next)
 		return (lst -> next);
 	while (lst -> next -> next)
-	{
-		printf("%d\n", lst -> data);
 		lst = lst -> next;
-	}
 	return (lst);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:56:40 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/30 23:09:52 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/31 14:20:16 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,17 @@ int	*get_index(int *nums, int nums_count)
 	return (res);
 }
 
-int	**ft_index(t_list **nodes, int *nums, int nums_count)
+void	ft_index(t_list *nodes, int *inds)
 {
-	int		i;
-	int		*inds;
+	int	i;
 	t_list	*tmp;
 
-	i = -1;
-	tmp = *nodes;
-	inds = get_index(nums, nums_count);
-	while (++i < nums_count)
+	i = 0;
+	tmp = nodes;
+	while (tmp)
 	{
 		tmp -> index = inds[i];
 		tmp = tmp -> next;
+		i++;
 	}
-	return (inds);
 }

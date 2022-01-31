@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 21:36:14 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/30 23:00:20 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/31 17:17:50 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	find_index_four(int ind, int *inds)
 	int	i;
 
 	i = 0;
-	while (i < 4)
+	while (i < 5)
 	{
 		if (inds[i] == ind)
 			return (i);
@@ -45,6 +45,7 @@ void	four_elements(t_list **sta, t_list **stb, int *inds, int dt)
 	int	a;
 
 	a = find_index_four(dt, inds);
+	printf("a: %d\n", a);
 	if (a == 0)
 	{
 		ft_pb(sta, stb);
@@ -75,17 +76,74 @@ void	four_elements(t_list **sta, t_list **stb, int *inds, int dt)
 	}
 }
 
+void	four_elements_ver_two(t_list **sta)
+{
+	if ((*sta)->next->index == 1)
+		ft_sa_sb(sta, 1);
+	else if ((*sta)->next->next->index == 1)
+	{
+		ft_ra_rb(sta, 1);
+		ft_ra_rb(sta, 1);
+	}
+	else if ((*sta)->next->next->next->index == 1)
+		ft_rra_rrb(sta, 1);
+}
+
 void	five_elements(t_list **sta, t_list **stb, int *inds)
 {
 	int	a;
 
 	a = find_index_five(0, inds);
+	printf("a: %d\n", a);
 	if (a == 0)
 	{
 		ft_pb(sta, stb);
-		four_elements(sta, stb, inds);
+		four_elements_ver_two(sta);
+		ft_pb(sta, stb);
+		three_elements(sta, 2);
 		ft_pa(sta, stb);
 		ft_pa(sta, stb);
 	}
-
+	else if (a == 1)
+	{
+		ft_sa_sb(sta, 1);
+		ft_pb(sta, stb);
+		four_elements_ver_two(sta);
+		ft_pb(sta, stb);
+		three_elements(sta, 2);
+		ft_pa(sta, stb);
+		ft_pa(sta, stb);
+	}
+	else if (a == 2)
+	{
+		ft_ra_rb(sta, 1);
+		ft_sa_sb(sta, 1);
+		ft_pb(sta, stb);
+		four_elements_ver_two(sta);
+		ft_pb(sta, stb);
+		three_elements(sta, 2);
+		ft_pa(sta, stb);
+		ft_pa(sta, stb);
+	}
+	else if (a == 3)
+	{
+		ft_rra_rrb(sta, 1);
+		ft_rra_rrb(sta, 1);
+		ft_pb(sta, stb);
+		four_elements_ver_two(sta);
+		ft_pb(sta, stb);
+		three_elements(sta, 2);
+		ft_pa(sta, stb);
+		ft_pa(sta, stb);
+	}
+	else if (a == 4)
+	{
+		ft_rra_rrb(sta, 1);
+		ft_pb(sta, stb);
+		four_elements_ver_two(sta);
+		ft_pb(sta, stb);
+		three_elements(sta, 2);
+		ft_pa(sta, stb);
+		ft_pa(sta, stb);
+	}
 }

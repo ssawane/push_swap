@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:20:42 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/18 22:21:15 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/31 17:39:21 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,19 @@
 void already_sorted_check(int *nums, int amount)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	while((nums[i] < nums[i + 1]) && i <= amount)
+	i = 1;
+	j = 0;
+	while(nums[j] < nums[i] && i < amount)
+	{
 		i++;
-	if (amount == 2)
-	{
-		if (i == amount)
-			ft_error("sorted already");
+		j++;
 	}
-	else
-	{
-		if (i == amount - 1)
+	printf ("amount: %d\n", amount);
+	printf ("i: %d\n", i);
+	if (i == amount)
 			ft_error("sorted already");
-	}
 }
 
 int	correct_minus_check(char **arr)
@@ -113,7 +112,6 @@ int	*int_str_convert(char *str, int *n)
 	res = (int *)malloc(sizeof(int) * *n);
 	if (!res)
 		return (NULL);
-	printf("nums_count: %d\n", *n);
 	if (!dup_check(arr) && !correct_minus_check(arr))
 	{
 		while(arr[++i])

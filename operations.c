@@ -6,24 +6,24 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 12:49:16 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/29 19:04:31 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/31 15:15:40 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_list(t_list **lst)
+void	print_list(t_list *lst)
 {
 	t_list	*tmp;
 
-	tmp = *lst;
+	tmp = lst;
 	while(tmp -> next)
 	{
-		printf("data: %d\n", tmp -> data);
+		printf("data: %d, ", tmp -> data);
 		printf("index: %d\n", tmp -> index);
 		tmp = tmp -> next;
 	}
-	printf("data: %d\n", tmp -> data);
+	printf("data: %d, ", tmp -> data);
 	printf("index: %d\n", tmp -> index);
 	printf("%s\n", " ");
 } 
@@ -37,7 +37,6 @@ void	ft_sa_sb(t_list **stck, int index)
 	n = *(stck);
 	if (n && n -> next)
 	{
-		printf("%s\n", "h3");
 		v1 = *(stck);
 		v2 = n -> next -> next;
 		*(stck) = (*stck) -> next;
@@ -68,17 +67,13 @@ void	ft_ss(t_list **sta, t_list **stb)
 void	ft_pa(t_list **sta, t_list **stb)
 {
 	t_list	*v1;
-	t_list	*n1;
-	t_list	*n2;
 
-	n2 = *(stb);
-	if (*(stb))
+	if (*stb)
 	{
 		v1 = *(sta);
-		*(sta) = *(stb);
-		n1 = *(sta);
-		*(stb) = n2 -> next;
-		n1 -> next = v1;
+		*sta = *stb;
+		*stb = (*stb) -> next;
+		(*sta) -> next = v1;
 		write (1, "pa", 2);
 		write (1, "\n", 1);
 	}
@@ -86,16 +81,12 @@ void	ft_pa(t_list **sta, t_list **stb)
 void	ft_pb(t_list **sta, t_list **stb)
 {
 	t_list	*v1;
-	t_list	*n1;
-	t_list	*n2;
 
-	n2 = *(sta);
-	if (*(sta))
+	if (*sta)
 	{
-		v1 = *(stb);
-		*(stb) = *(sta);
-		n1 = *(stb);
-		*(sta) = n2 -> next;
+		v1 = *stb;
+		*stb = *sta;
+		*sta = (*sta) -> next;
 		(*stb)->next = v1;
 		write (1, "pb", 2);
 		write (1, "\n", 1);
@@ -146,12 +137,12 @@ void	ft_rra_rrb(t_list **stck, int index)
 	(*stck) -> next = tmp_first;
 	if (index == 1)
 	{
-		write (1, "rra", 2);
+		write (1, "rra", 3);
 		write (1, "\n", 1);
 	}
 	else if (index == 2)
 	{
-		write (1, "rrb", 2);
+		write (1, "rrb", 3);
 		write (1, "\n", 1);
 	}
 }
@@ -160,27 +151,6 @@ void	ft_rrr(t_list **sta, t_list **stb)
 {
 	ft_rra_rrb(sta, 0);
 	ft_rra_rrb(stb, 0);
-	write (1, "rrr", 2);
+	write (1, "rrr", 3);
 	write (1, "\n", 1);
 }
-
-// int	main(void)
-// {
-// 	t_list	**sta;
-// 	t_list	**stb;
-// 	int		n1[] = {83, 7, 28, 81, 67};
-// 	int		n2[] = {32, 921, 68, 79, 17};
-
-// 	sta = lst_nums_convert(n1, 5);
-// 	printf("%s\n", "t1");
-// 	stb = lst_nums_convert(n2, 5);
-
-// 	//ft_sa_sb(stb, 2);
-// 	//ft_pb(sta, stb);
-// 	//ft_ss(sta, stb);
-// 	//
-// 	//ft_ra(sta);
-// 	ft_rra_rrb(sta, 1);
-// 	print_list(sta);
-// 	//print_list(sta);
-// }
