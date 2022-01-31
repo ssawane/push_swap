@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 12:49:16 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/29 14:52:39 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/29 19:04:31 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	print_list(t_list **lst)
 {
 	t_list	*tmp;
 
-	tmp = *(lst);
+	tmp = *lst;
 	while(tmp -> next)
 	{
 		printf("data: %d\n", tmp -> data);
@@ -37,6 +37,7 @@ void	ft_sa_sb(t_list **stck, int index)
 	n = *(stck);
 	if (n && n -> next)
 	{
+		printf("%s\n", "h3");
 		v1 = *(stck);
 		v2 = n -> next -> next;
 		*(stck) = (*stck) -> next;

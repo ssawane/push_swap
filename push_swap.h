@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 22:35:05 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/28 22:36:00 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/01/30 23:14:52 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,23 @@ int		*int_str_convert(char *str, int *n);
 t_list	*ft_lstnew(int data);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	**lst_nums_convert(int *nums, int nums_count);
+t_list	**lst_nums_convert(int *nums, int nums_count, int *inds);
 void	ft_sa(t_list **nodes);
 t_list	*ft_almostlast(t_list *lst);
-void	ft_index(t_list **nodes, int *nums, int nums_count);
+int		**ft_index(t_list **nodes, int *nums, int nums_count);
 int		*get_index(int *nums, int nums_count);
 int		ft_max_check(int tmp, int number, int *nums, int nums_count);
 int		first_index(int *k, int *nums, int nums_count);
 void	print_list(t_list **lst);
+void	three_elements(t_list **stck);
+void	ft_sa_sb(t_list **stck, int index);
+void	ft_ss(t_list **sta, t_list **stb);
+void	ft_pa(t_list **sta, t_list **stb);
+void	ft_pb(t_list **sta, t_list **stb);
+void	ft_ra_rb(t_list **stck, int index);
+void	ft_rr(t_list **sta, t_list **stb);
+void	ft_rra_rrb(t_list **stck, int index);
+void	ft_rrr(t_list **sta, t_list **stb);
 
 
 #endif
