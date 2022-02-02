@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 22:35:05 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/31 17:15:51 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/01 18:01:03 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct	s_list {
 	int				data;
 	int				index;
+	int				flag;
 	struct s_list	*next;
 }				t_list;
 
@@ -45,7 +46,7 @@ void	print_list(t_list *lst);
 void	three_elements(t_list **stck, int dt);
 void	four_elements(t_list **sta, t_list **stb, int *inds, int dt);
 void	five_elements(t_list **sta, t_list **stb, int *inds);
-void	huge_elements(t_list **sta, t_list **stb);
+void	huge_elements(t_list **sta, t_list **stb, int *inds, int nums_count);
 void	ft_sa_sb(t_list **stck, int index);
 void	ft_ss(t_list **sta, t_list **stb);
 void	ft_pa(t_list **sta, t_list **stb);

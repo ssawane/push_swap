@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_center.c                                      :+:      :+:    :+:   */
+/*   huge_elements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 21:28:30 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/01 17:35:12 by ssawane          ###   ########.fr       */
+/*   Created: 2022/02/01 14:58:12 by ssawane           #+#    #+#             */
+/*   Updated: 2022/02/01 17:58:04 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_center(t_list **sta, int *inds, int nums_count)
+void	huge_elements(t_list **sta, t_list **stb, int *inds, int nums_count)
 {
-	t_list	*stb;
+	int		mid;
+	int		i;
 
-	stb = malloc(sizeof(t_list));
-	if (nums_count == 3)
-		three_elements(sta, 0);
-	else if (nums_count == 4)
-		four_elements(sta, &stb, inds, 0);
-	else if (nums_count == 5)
-		five_elements(sta, &stb, inds);
-	else if (nums_count > 5)
-		huge_elements(sta, &stb, inds, nums_count);
+	mid = (nums_count - 1)/2;
+	i = -1;
+	printf("inds[0]: %d\n", inds[0]);
+	printf("mid: %d\n", mid);
+	while (++i < nums_count)
+	{
+		if ((*sta) -> index <= mid)
+			ft_pb(sta, stb);
+		else
+			ft_ra_rb(sta, 1);
+	}
+	printf("stack_a: %s\n", " ");
+	print_list(*sta);
+	printf("stack_b: %s\n", " ");
+	print_list(*stb);
 }
