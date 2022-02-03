@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 22:35:05 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/02 22:43:44 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/03 16:44:23 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct	s_main {
 	int			min_a;
 	int			len_a;
 	int			len_b;
+	int			counter_second_step;
+	int			main_flag;
 }				t_main;
 
 int		ft_atoi(const char *nptr);
@@ -70,5 +72,9 @@ void	push_center(t_list **sta, int *inds, int nums_count);
 int		nodes_counter(t_list **stck);
 void	third_step(t_main *lst);
 void	two_elements(t_main *lst);
+void	first_step(t_main *lst, int iter);
+void	giant_leap(t_main *lst);
+void	second_step(t_main *lst);
+void	null_element_remove(t_main *lst);
 
 #endif
