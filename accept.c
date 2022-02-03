@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:20:42 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/31 17:39:21 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/02 22:19:57 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void already_sorted_check(int *nums, int amount)
 		i++;
 		j++;
 	}
-	printf ("amount: %d\n", amount);
-	printf ("i: %d\n", i);
 	if (i == amount)
 			ft_error("sorted already");
 }

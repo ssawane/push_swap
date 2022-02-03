@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:00:14 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/01 17:40:09 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/02 22:15:53 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 		// printf("inds[1]: %d\n", inds[1]);
 		// printf("inds[2]: %d\n", inds[2]);
 		nodes = lst_nums_convert(nums, nums_count, inds);
-		print_list(nodes);
+		//print_list(nodes);
 
 		
 		push_center(&nodes, inds, nums_count);

@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 12:49:16 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/31 15:15:40 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/02 21:17:27 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ void	print_list(t_list *lst)
 	while(tmp -> next)
 	{
 		printf("data: %d, ", tmp -> data);
-		printf("index: %d\n", tmp -> index);
+		printf("index: %d, ", tmp -> index);
+		printf("flag: %d\n", tmp -> flag);
 		tmp = tmp -> next;
 	}
 	printf("data: %d, ", tmp -> data);
-	printf("index: %d\n", tmp -> index);
+	printf("index: %d, ", tmp -> index);
+	printf("flag: %d\n", tmp -> flag);
 	printf("%s\n", " ");
 } 
 

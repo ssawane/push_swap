@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 21:36:14 by ssawane           #+#    #+#             */
-/*   Updated: 2022/01/31 17:17:50 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/02 16:47:35 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ void	four_elements(t_list **sta, t_list **stb, int *inds, int dt)
 	if (a == 0)
 	{
 		ft_pb(sta, stb);
-		three_elements(sta, 1);
+		three_elements(sta, 1, 1);
 		ft_pa(sta, stb);
 	}
 	else if (a == 1)
 	{
 		ft_sa_sb(sta, 1);
 		ft_pb(sta, stb);
-		three_elements(sta, 1);
+		three_elements(sta, 1, 1);
 		ft_pa(sta, stb);
 	}
 	else if (a == 2)
@@ -64,14 +64,14 @@ void	four_elements(t_list **sta, t_list **stb, int *inds, int dt)
 		ft_rra_rrb(sta, 1);
 		ft_rra_rrb(sta, 1);
 		ft_pb(sta, stb);
-		three_elements(sta, 1);
+		three_elements(sta, 1, 1);
 		ft_pa(sta, stb);
 	}
 	else if (a == 3)
 	{
 		ft_rra_rrb(sta, 1);
 		ft_pb(sta, stb);
-		three_elements(sta, 1);
+		three_elements(sta, 1, 1);
 		ft_pa(sta, stb);
 	}
 }
@@ -100,7 +100,7 @@ void	five_elements(t_list **sta, t_list **stb, int *inds)
 		ft_pb(sta, stb);
 		four_elements_ver_two(sta);
 		ft_pb(sta, stb);
-		three_elements(sta, 2);
+		three_elements(sta, 2, 1);
 		ft_pa(sta, stb);
 		ft_pa(sta, stb);
 	}
@@ -110,7 +110,7 @@ void	five_elements(t_list **sta, t_list **stb, int *inds)
 		ft_pb(sta, stb);
 		four_elements_ver_two(sta);
 		ft_pb(sta, stb);
-		three_elements(sta, 2);
+		three_elements(sta, 2, 1);
 		ft_pa(sta, stb);
 		ft_pa(sta, stb);
 	}
@@ -121,7 +121,7 @@ void	five_elements(t_list **sta, t_list **stb, int *inds)
 		ft_pb(sta, stb);
 		four_elements_ver_two(sta);
 		ft_pb(sta, stb);
-		three_elements(sta, 2);
+		three_elements(sta, 2, 1);
 		ft_pa(sta, stb);
 		ft_pa(sta, stb);
 	}
@@ -132,7 +132,7 @@ void	five_elements(t_list **sta, t_list **stb, int *inds)
 		ft_pb(sta, stb);
 		four_elements_ver_two(sta);
 		ft_pb(sta, stb);
-		three_elements(sta, 2);
+		three_elements(sta, 2, 1);
 		ft_pa(sta, stb);
 		ft_pa(sta, stb);
 	}
@@ -142,7 +142,7 @@ void	five_elements(t_list **sta, t_list **stb, int *inds)
 		ft_pb(sta, stb);
 		four_elements_ver_two(sta);
 		ft_pb(sta, stb);
-		three_elements(sta, 2);
+		three_elements(sta, 2, 1);
 		ft_pa(sta, stb);
 		ft_pa(sta, stb);
 	}

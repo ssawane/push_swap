@@ -11,6 +11,7 @@ SRCS	=	accept_utils.c\
 			push_center.c\
 			three_elements.c\
 			huge_elements.c\
+			third_step.c\
 
 HEADER	=	push_swap.h
 OBJ		=	$(patsubst %.c, %.o, $(SRCS))

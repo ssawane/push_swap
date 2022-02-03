@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 22:35:05 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/01 18:01:03 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/02 22:43:44 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@ typedef struct	s_list {
 	int				flag;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct	s_main {
+	t_list		**stack_a;
+	t_list		**stack_b;
+	int			*indexes;
+	int			nums_total;
+	int			mid;
+	int			min_a;
+	int			len_a;
+	int			len_b;
+}				t_main;
 
 int		ft_atoi(const char *nptr);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -43,7 +54,7 @@ int		*get_index(int *nums, int nums_count);
 int		ft_max_check(int tmp, int number, int *nums, int nums_count);
 int		first_index(int *k, int *nums, int nums_count);
 void	print_list(t_list *lst);
-void	three_elements(t_list **stck, int dt);
+void	three_elements(t_list **stck, int dt, int ab);
 void	four_elements(t_list **sta, t_list **stb, int *inds, int dt);
 void	five_elements(t_list **sta, t_list **stb, int *inds);
 void	huge_elements(t_list **sta, t_list **stb, int *inds, int nums_count);
@@ -56,6 +67,8 @@ void	ft_rr(t_list **sta, t_list **stb);
 void	ft_rra_rrb(t_list **stck, int index);
 void	ft_rrr(t_list **sta, t_list **stb);
 void	push_center(t_list **sta, int *inds, int nums_count);
-
+int		nodes_counter(t_list **stck);
+void	third_step(t_main *lst);
+void	two_elements(t_main *lst);
 
 #endif
