@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:31:44 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/04 10:17:28 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/04 12:58:21 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	third_step(t_main *lst)
 	{
 		i = -1;
 		counter = 0;
-		lst->mid = (lst->mid - lst->min_a + 1)/2 + lst->min_a + 1;
+		printf("len_b1: %d\n", lst->len_b);
 		while(++i < lst->len_b)
 		{
 			if ((*lst->stack_b)->index == lst->min_a)
@@ -108,9 +108,13 @@ void	third_step(t_main *lst)
 			else
 				ft_ra_rb(lst->stack_b, 2);
 		}
-		if (counter > 2)
+		if (counter > 10)
 			change_flag(lst, counter);
 		lst->len_b = nodes_counter(lst->stack_b);
+		lst->mid = (lst->mid - lst->min_a + 1)/2 + lst->min_a + 1;
+		printf("len_b2: %d\n", lst->len_b);
+		printf("mid: %d\n", lst->mid);
+		print_stacks(lst);
 	}
 	last_three_elements_in_b(lst);
 }

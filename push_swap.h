@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 22:35:05 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/03 21:33:11 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/04 12:45:41 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,8 @@ void	two_elements(t_main *lst);
 void	first_step(t_main *lst, int iter);
 void	giant_leap(t_main *lst);
 void	second_step(t_main *lst);
+void	print_stacks(t_main *lst);
+void	change_flag(t_main *lst, int counter);
+void	last_three_elements_in_b(t_main *lst);
 
 #endif

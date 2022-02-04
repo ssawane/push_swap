@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 12:49:16 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/04 00:04:04 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/04 12:25:13 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ void	print_list(t_list *lst)
 		printf("%s\n", " ");
 	}
 } 
+
+void	print_stacks(t_main *lst)
+{
+	printf("stack_a: %s\n", " ");
+	print_list((*lst->stack_a));
+	printf("stack_b: %s\n", " ");
+	print_list(*(lst->stack_b));
+}
 
 void	ft_sa_sb(t_list **stck, int index)
 {
