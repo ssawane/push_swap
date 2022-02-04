@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 12:49:16 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/02 21:17:27 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/04 00:04:04 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,20 @@ void	print_list(t_list *lst)
 	t_list	*tmp;
 
 	tmp = lst;
-	while(tmp -> next)
+	if (tmp)
 	{
+		while(tmp -> next)
+		{
+			printf("data: %d, ", tmp -> data);
+			printf("index: %d, ", tmp -> index);
+			printf("flag: %d\n", tmp -> flag);
+			tmp = tmp -> next;
+		}
 		printf("data: %d, ", tmp -> data);
 		printf("index: %d, ", tmp -> index);
 		printf("flag: %d\n", tmp -> flag);
-		tmp = tmp -> next;
+		printf("%s\n", " ");
 	}
-	printf("data: %d, ", tmp -> data);
-	printf("index: %d, ", tmp -> index);
-	printf("flag: %d\n", tmp -> flag);
-	printf("%s\n", " ");
 } 
 
 void	ft_sa_sb(t_list **stck, int index)
@@ -72,7 +75,7 @@ void	ft_pa(t_list **sta, t_list **stb)
 
 	if (*stb)
 	{
-		v1 = *(sta);
+		v1 = *sta;
 		*sta = *stb;
 		*stb = (*stb) -> next;
 		(*sta) -> next = v1;
@@ -100,20 +103,23 @@ void	ft_ra_rb(t_list **stck, int index)
 	t_list	*tmp_first;
 	t_list	*tmp_last;
 
-	tmp_last = ft_lstlast(*stck);
-	tmp_first = *stck;
-	*stck = (*stck) -> next;
-	tmp_last -> next = tmp_first;
-	tmp_first -> next = NULL;
-	if (index == 1)
+	if ((*stck)->next)
 	{
-		write (1, "ra", 2);
-		write (1, "\n", 1);
-	}
-	else if (index == 2)
-	{
-		write (1, "rb", 2);
-		write (1, "\n", 1);
+		tmp_last = ft_lstlast(*stck);
+		tmp_first = *stck;
+		*stck = (*stck) -> next;
+		tmp_last -> next = tmp_first;
+		tmp_first -> next = NULL;
+		if (index == 1)
+		{
+			write (1, "ra", 2);
+			write (1, "\n", 1);
+		}
+		else if (index == 2)
+		{
+			write (1, "rb", 2);
+			write (1, "\n", 1);
+		}
 	}
 }
 

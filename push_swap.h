@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 22:35:05 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/03 16:44:23 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/03 21:33:11 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		*get_index(int *nums, int nums_count);
 int		ft_max_check(int tmp, int number, int *nums, int nums_count);
 int		first_index(int *k, int *nums, int nums_count);
 void	print_list(t_list *lst);
-void	three_elements(t_list **stck, int dt, int ab);
+void	three_elements(t_list **stck, int ab);
 void	four_elements(t_list **sta, t_list **stb, int *inds, int dt);
 void	five_elements(t_list **sta, t_list **stb, int *inds);
 void	huge_elements(t_list **sta, t_list **stb, int *inds, int nums_count);
@@ -75,6 +75,5 @@ void	two_elements(t_main *lst);
 void	first_step(t_main *lst, int iter);
 void	giant_leap(t_main *lst);
 void	second_step(t_main *lst);
-void	null_element_remove(t_main *lst);
 
 #endif

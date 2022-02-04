@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:02:00 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/02 22:43:27 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/03 21:31:51 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,21 +53,23 @@ void	one_zero_two(t_list **stck, int ab)
 	ft_sa_sb(stck, ab);
 }
 
-void	three_elements(t_list **stck, int dt, int ab)
+void	three_elements(t_list **stck, int ab)
 {
-	if ((*stck) -> index == dt + 2 && (*stck) -> next -> index == dt + 1 &&
-	(*stck) -> next -> next -> index == dt)
+	int	t_ind1;
+	int	t_ind2;
+	int	t_ind3;
+
+	t_ind1 = (*stck) -> index;
+	t_ind2 = (*stck) -> next -> index;
+	t_ind3 = (*stck) -> next -> next -> index;
+	if (t_ind1 > t_ind2  && t_ind2 > t_ind3)
 		two_one_zero(stck, ab);
-	else if ((*stck) -> index == dt + 2 && (*stck) -> next -> index == dt &&
-	(*stck) -> next -> next -> index == dt + 1)
+	else if (t_ind1 > t_ind2  && t_ind2 < t_ind3)
 		two_zero_one(stck, ab);
-	else if ((*stck) -> index == dt && (*stck) -> next -> index == dt + 2 &&
-	(*stck) -> next -> next -> index == dt + 1)
+	else if (t_ind1 < t_ind2  && t_ind2 < t_ind3)
 		zero_two_one(stck, ab);
-	else if ((*stck) -> index == dt + 1 && (*stck) -> next -> index == dt + 2 &&
-	(*stck) -> next -> next -> index == dt)
+	else if (t_ind1 < t_ind2  && t_ind2 > t_ind3)
 		one_two_zero(stck, ab);
-	else if ((*stck) -> index == dt + 1 && (*stck) -> next -> index == dt &&
-	(*stck) -> next -> next -> index == dt + 2)
+	else if (t_ind1 > t_ind2  && t_ind2 < t_ind3)
 		one_zero_two(stck, ab);
 }

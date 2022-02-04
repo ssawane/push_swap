@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 21:28:30 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/03 15:24:55 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/03 21:33:23 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void	push_center(t_list **sta, int *inds, int nums_count)
 {
 	t_list	*stb;
 
+	stb = NULL;
 	if (nums_count == 3)
-		three_elements(sta, 0, 1);
+		three_elements(sta, 1);
 	else if (nums_count == 4)
 		four_elements(sta, &stb, inds, 0);
 	else if (nums_count == 5)

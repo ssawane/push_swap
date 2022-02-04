@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:31:44 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/03 17:34:58 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/04 10:17:28 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	last_three_elements_in_b(t_main *lst)
 	}
 	else if (lst->len_b == 3)
 	{
-		three_elements(lst->stack_b, 0, 2);
+		three_elements(lst->stack_b, 2);
 		while (++i < 3)
 		{
 			ft_pa(lst->stack_a, lst->stack_b);
@@ -64,54 +64,31 @@ void	last_three_elements_in_b(t_main *lst)
 	}
 }
 
-void	flag_check(t_main *lst)
+void	change_flag(t_main *lst, int counter)
 {
 	t_list	*tmp;
-	int		counter;
-	int		flag_temp;
-	int		fs;
+	int		i;
 
-	counter = 0;
+	i = -1;
 	tmp = (*lst->stack_a);
-	flag_temp = tmp->flag;
-	fs = 0;
-	while (!fs)
+	lst->main_flag++;
+	while (++i < counter)
 	{
-		counter = 0;
-		tmp = (*lst->stack_a);
-		flag_temp = tmp->flag;
-		while(tmp && tmp->flag == flag_temp)
-		{
-			if (tmp->flag == flag_temp)
-				counter++;
-			tmp = tmp -> next;
-		}
-		if (counter < 20)
-		{
-			tmp = (*lst->stack_a);
-			while(tmp && tmp->flag == flag_temp)
-			{
-				tmp->flag = flag_temp - 1;
-				tmp = tmp -> next;
-			}
-		}
-		else
-			fs++;
+		tmp->flag = lst->main_flag;
+		tmp = tmp->next;
 	}
 }
 
 void	third_step(t_main *lst)
 {
 	int	i;
-	int	fl;
-	int	fl2;
+	int	counter;
 
-	fl2 = 0;
 	lst->len_b = nodes_counter(lst->stack_b);
 	while(lst->len_b > 3)
 	{
 		i = -1;
-		fl = lst->main_flag;
+		counter = 0;
 		lst->mid = (lst->mid - lst->min_a + 1)/2 + lst->min_a + 1;
 		while(++i < lst->len_b)
 		{
@@ -125,17 +102,15 @@ void	third_step(t_main *lst)
 			else if ((*lst->stack_b)->index >= lst->mid)
 			{
 				ft_pa(lst->stack_a, lst->stack_b);
-				(*lst->stack_a)->flag = fl;
-				fl2++;
+				(*lst->stack_a)->flag = lst->main_flag;
+				counter++;
 			}
 			else
 				ft_ra_rb(lst->stack_b, 2);
-		 }
+		}
+		if (counter > 2)
+			change_flag(lst, counter);
 		lst->len_b = nodes_counter(lst->stack_b);
-		if (fl2)
-			lst->main_flag++;
-		fl2 = 0;
 	}
 	last_three_elements_in_b(lst);
-//	flag_check(lst);
 }
