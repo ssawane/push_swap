@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   four_five_elements.c                               :+:      :+:    :+:   */
+/*   four_elements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 21:36:14 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/03 23:17:13 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/08 14:13:19 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,38 +40,35 @@ int	find_index_four(int ind, int *inds)
 	return (-1);
 }
 
+void	four_elements_cont(t_list **sta, t_list **stb)
+{
+	ft_pb(sta, stb);
+	three_elements(sta, 1);
+	ft_pa(sta, stb);
+}
+
 void	four_elements(t_list **sta, t_list **stb, int *inds, int dt)
 {
 	int	a;
 
 	a = find_index_four(dt, inds);
 	if (a == 0)
-	{
-		ft_pb(sta, stb);
-		three_elements(sta, 1);
-		ft_pa(sta, stb);
-	}
+		four_elements_cont(sta, stb);
 	else if (a == 1)
 	{
 		ft_sa_sb(sta, 1);
-		ft_pb(sta, stb);
-		three_elements(sta, 1);
-		ft_pa(sta, stb);
+		four_elements_cont(sta, stb);
 	}
 	else if (a == 2)
 	{
 		ft_rra_rrb(sta, 1);
 		ft_rra_rrb(sta, 1);
-		ft_pb(sta, stb);
-		three_elements(sta, 1);
-		ft_pa(sta, stb);
+		four_elements_cont(sta, stb);
 	}
 	else if (a == 3)
 	{
 		ft_rra_rrb(sta, 1);
-		ft_pb(sta, stb);
-		three_elements(sta, 1);
-		ft_pa(sta, stb);
+		four_elements_cont(sta, stb);
 	}
 }
 
@@ -86,62 +83,4 @@ void	four_elements_ver_two(t_list **sta)
 	}
 	else if ((*sta)->next->next->next->index == 1)
 		ft_rra_rrb(sta, 1);
-}
-
-void	five_elements(t_list **sta, t_list **stb, int *inds)
-{
-	int	a;
-
-	a = find_index_five(0, inds);
-	if (a == 0)
-	{
-		ft_pb(sta, stb);
-		four_elements_ver_two(sta);
-		ft_pb(sta, stb);
-		three_elements(sta, 1);
-		ft_pa(sta, stb);
-		ft_pa(sta, stb);
-	}
-	else if (a == 1)
-	{
-		ft_sa_sb(sta, 1);
-		ft_pb(sta, stb);
-		four_elements_ver_two(sta);
-		ft_pb(sta, stb);
-		three_elements(sta, 1);
-		ft_pa(sta, stb);
-		ft_pa(sta, stb);
-	}
-	else if (a == 2)
-	{
-		ft_ra_rb(sta, 1);
-		ft_sa_sb(sta, 1);
-		ft_pb(sta, stb);
-		four_elements_ver_two(sta);
-		ft_pb(sta, stb);
-		three_elements(sta, 1);
-		ft_pa(sta, stb);
-		ft_pa(sta, stb);
-	}
-	else if (a == 3)
-	{
-		ft_rra_rrb(sta, 1);
-		ft_rra_rrb(sta, 1);
-		ft_pb(sta, stb);
-		four_elements_ver_two(sta);
-		ft_pb(sta, stb);
-		three_elements(sta, 1);
-		ft_pa(sta, stb);
-		ft_pa(sta, stb);
-	}
-	else if (a == 4)
-	{
-		ft_rra_rrb(sta, 1);
-		ft_pb(sta, stb);
-		four_elements_ver_two(sta);
-		ft_pb(sta, stb);
-		three_elements(sta, 1);
-		ft_pa(sta, stb);
-		ft_pa(sta, stb);
-	}
 }

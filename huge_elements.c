@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:58:12 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/03 23:38:13 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/08 17:34:09 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void	second_step(t_main *lst)
 	if (lst->min_a > 0)
 	{
 		tmp = lst->min_a;
-		while(tmp > 0)
+		while (tmp > 0)
 		{
 			ft_rra_rrb(lst->stack_b, 2);
 			tmp--;
 		}
 		tmp = lst->min_a;
-		while(tmp > 0)
+		while (tmp > 0)
 		{
 			ft_pa(lst->stack_a, lst->stack_b);
 			(*lst->stack_a)->flag = -1;
@@ -57,7 +57,7 @@ void	first_step(t_main *lst, int iter)
 	i = -1;
 	while (++i < iter)
 	{
-		if ((*lst->stack_a) -> index <= lst->mid)
+		if ((*lst->stack_a)->index <= lst->mid)
 		{
 			ft_pb(lst->stack_a, lst->stack_b);
 			if ((*lst->stack_b)->index == lst->min_a)
@@ -71,26 +71,20 @@ void	first_step(t_main *lst, int iter)
 	}
 }
 
-void	huge_elements(t_list **sta, t_list **stb, int *inds, int nums_count)
+void	huge_elements(t_list **sta, t_list **stb, int nums_count)
 {
 	t_main	lst;
 
-	lst.mid = (nums_count - 1)/2;
-	lst.indexes = inds;
+	lst.mid = (nums_count - 1) / 2;
 	lst.stack_a = sta;
 	lst.stack_b = stb;
 	lst.nums_total = nums_count;
 	lst.min_a = 0;
 	lst.len_a = nodes_counter(sta);
 	lst.main_flag = 0;
+	lst.string = NULL;
 	first_step(&lst, lst.nums_total);
 	second_step(&lst);
 	third_step(&lst);
 	giant_leap(&lst);
-
-	printf("min_a: %d\n", lst.min_a);
-	printf("stack_a: %s\n", " ");
-	print_list((*lst.stack_a));
-	printf("stack_b: %s\n", " ");
-	print_list(*(lst.stack_b));
 }

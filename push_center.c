@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 21:28:30 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/03 21:33:23 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/08 17:48:10 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	push_center(t_list **sta, int *inds, int nums_count)
 	else if (nums_count == 5)
 		five_elements(sta, &stb, inds);
 	else if (nums_count > 5)
-		huge_elements(sta, &stb, inds, nums_count);
+		huge_elements(sta, &stb, nums_count);
 }
