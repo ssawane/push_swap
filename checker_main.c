@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 12:26:24 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/25 10:13:52 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/25 10:39:37 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,15 @@ void	ft_checker(t_list **sta, int nums_count)
 	{
 		write(1, "OK", 2);
 		write(1, "\n", 1);
+		ft_free_stacks(*sta);
 		exit(0);
 	}
 	else
 	{
 		write(1, "KO", 2);
 		write(1, "\n", 1);
+		ft_free_stacks(stb);
+		ft_free_stacks(*sta);
 		exit(0);
 	}
 }
@@ -80,6 +83,5 @@ int	main(int ac, char **av)
 		inds = get_index(nums, nums_count);
 		nodes = lst_nums_convert(nums, nums_count, inds);
 		ft_checker(&nodes, nums_count);
-		ft_free_stacks(nodes);
 	}
 }
