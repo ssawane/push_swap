@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 22:35:05 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/08 21:01:06 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/25 10:08:53 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,6 @@ void	already_sorted_check(int *nums, int amount);
 void	digit_check(char *str);
 void	four_elements_ver_two(t_list **sta);
 void	last_three_elements_in_b(t_main *lst);
+void	ft_free_stacks(t_list *stack);
 
 #endif

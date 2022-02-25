@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 12:26:24 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/09 13:35:27 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/25 10:13:52 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ int	main(int ac, char **av)
 		inds = get_index(nums, nums_count);
 		nodes = lst_nums_convert(nums, nums_count, inds);
 		ft_checker(&nodes, nums_count);
+		ft_free_stacks(nodes);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:20:42 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/07 17:42:42 by ssawane          ###   ########.fr       */
+/*   Updated: 2022/02/25 10:24:53 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	digit_check(char *str)
 
 	i = 0;
 	if (!str)
-		ft_error();
+		exit(0);
 	while (str[i])
 	{
 		if (str[i] < 48 || str[i] > 57)

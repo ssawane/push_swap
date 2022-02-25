@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssawane <ssawane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/17 12:00:14 by ssawane           #+#    #+#             */
-/*   Updated: 2022/02/25 10:26:27 by ssawane          ###   ########.fr       */
+/*   Created: 2022/02/25 09:59:39 by ssawane           #+#    #+#             */
+/*   Updated: 2022/02/25 10:28:04 by ssawane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	ft_free_stacks(t_list *stack)
 {
-	char	*str;
-	int		*nums;
-	t_list	*nodes;
-	int		nums_count;
-	int		*inds;
+	t_list	*tmp;
 
-	if (ac > 1)
+	while (stack)
 	{
-		str = char_str_convert(av);
-		nums = int_str_convert(str, &nums_count);
-		inds = get_index(nums, nums_count);
-		nodes = lst_nums_convert(nums, nums_count, inds);
-		push_center(&nodes, inds, nums_count);
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
 	}
 }

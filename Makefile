@@ -19,6 +19,7 @@ SRCS	=	accept_utils.c\
 			third_step.c\
 			third_step_2.c\
 			giant_leap.c\
+			free_stacks.c\
 
 SRCS_B	=	accept_utils.c\
 			accept_utils_2.c\
@@ -32,6 +33,7 @@ SRCS_B	=	accept_utils.c\
 			bonus_operations.c\
 			bonus_operations_2.c\
 			get_next_line.c\
+			free_stacks.c\
 
 HEADER	=	push_swap.h
 OBJ		=	$(patsubst %.c, %.o, $(SRCS))
